@@ -5,6 +5,7 @@ public class Patients {
     private String name;
     private String surname;
     private int age;
+    private String gender;
     private int personalCode;
     private String diagnose;
 
@@ -18,6 +19,7 @@ public class Patients {
         this.surname = surname;
         this.age = age;
         this.personalCode = personalCode;
+        this.gender = gender;
     }
 
     public int getId() {
@@ -66,5 +68,13 @@ public class Patients {
 
     public void setDiagnose(String diagnose) {
         this.diagnose = diagnose;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
