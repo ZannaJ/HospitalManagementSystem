@@ -7,7 +7,7 @@ public class Patients {
     private int age;
     private String gender;
     private int personalCode;
-    private String diagnose;
+
 
     public Patients() {
 
@@ -62,13 +62,6 @@ public class Patients {
         this.personalCode = personalCode;
     }
 
-    public String getDiagnose() {
-        return diagnose;
-    }
-
-    public void setDiagnose(String diagnose) {
-        this.diagnose = diagnose;
-    }
 
     public String getGender() {
         return gender;

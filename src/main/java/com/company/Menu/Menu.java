@@ -13,10 +13,9 @@ public class Menu {
         System.out.println("1. Get a patient by ID");
         System.out.println("2. Add a new patient");
         System.out.println("3. Add a new doctor ");
-        System.out.println("4. Add a new drug");
-        System.out.println("5. Edit a patient");
-        System.out.println("6. Delete a patient");
-        System.out.println("7. Assign drugs to patient");
+        System.out.println("4. Edit a patient");
+        System.out.println("5. Delete a patient");
+        System.out.println("6. Assign drugs to patient");
 
         System.out.println("Select an option: ");
         int option = scanner.nextInt();
@@ -32,15 +31,12 @@ public class Menu {
                 HospitalController.addNewDoctor();
                 break;
             case 4:
-                HospitalController.addNewDrugs();
-                break;
-            case 5:
                 HospitalController.editPatient();
                 break;
-            case 6:
+            case 5:
                 HospitalController.deletePatient();
                 break;
-            case 7:
+            case 6:
                 HospitalController.drugsToPatients();
                 break;
             default:
