@@ -60,19 +60,6 @@ public class HospitalController {
         }
 
     }
-    public static boolean addNewDrugs() {
-        System.out.println("Enter the name of the drugs: ");
-        String name = scanner.next();
-
-        try {
-            ps = DbConnection.getConnection().prepareStatement("INSERT INTO drugs(name)" + "VALUES('" + name + "')");
-            ps.execute();
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 
     public static void editPatient() {
         System.out.println("Enter the patient id: ");
