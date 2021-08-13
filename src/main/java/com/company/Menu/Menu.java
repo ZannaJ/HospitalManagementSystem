@@ -15,7 +15,8 @@ public class Menu {
         System.out.println("3. Add a new doctor ");
         System.out.println("4. Edit a patient");
         System.out.println("5. Delete a patient");
-        System.out.println("6. Assign drugs to patient");
+        System.out.println("6. Add a new drug");
+        System.out.println("7. Edit a drug");
 
         System.out.println("Select an option: ");
         int option = scanner.nextInt();
@@ -37,7 +38,10 @@ public class Menu {
                 HospitalController.deletePatient();
                 break;
             case 6:
-                HospitalController.drugsToPatients();
+                HospitalController.addNewDrugs();
+                break;
+            case 7:
+                HospitalController.editDrug();
                 break;
             default:
                 System.out.println("Invalid option selected. ");

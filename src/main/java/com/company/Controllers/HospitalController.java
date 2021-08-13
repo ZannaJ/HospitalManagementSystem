@@ -72,7 +72,7 @@ public class HospitalController {
         System.out.println("Enter the updated value: ");
         String update = scanner.next();
         try {
-            ps = DbConnection.getConnection().prepareStatement("UPDATE patients SET " + field + " = " + update + " WHERE id = " + patientId);
+            ps = DbConnection.getConnection().prepareStatement("UPDATE patients SET " + field + " = '" + update + "' WHERE id = " + patientId);
             ps.execute();
             System.out.println("Successfully updated patient. ");
         } catch (SQLException e) {
@@ -85,11 +85,11 @@ public class HospitalController {
         int patientId = scanner.nextInt();
 
         try {
-//            ps = DbConnection.getConnection().prepareStatement("DELETE FROM doctors WHERE patient_id=" + patientId);
+
             ps.execute();
-            ps = DbConnection.getConnection().prepareStatement("DELETE FROM patients WHERE id=" + patientId);
+            ps = DbConnection.getConnection().prepareStatement("DELETE FROM students WHERE id=" + patientId);
             ps.execute();
-            System.out.println("Successfully deleted");
+            System.out.println("Successfully deleted a patient");
         } catch (SQLException e) {
             e.printStackTrace();
 
@@ -135,20 +135,43 @@ public class HospitalController {
         }
     }
 
-    public static void drugsToPatients() {
-        System.out.println("Enter the patient's id: ");
+    public static void addNewDrugs() {
+        System.out.println("Enter the drugs id: ");
         int id = scanner.nextInt();
 
         System.out.println("Enter the name of the drug : ");
-        String drugName = scanner.next();
+        String name = scanner.next();
 
+        System.out.println("Enter the description of drugs: ");
+        String for_what = scanner.next();
 
         try {
-            ps = DbConnection.getConnection().prepareStatement("INSERT INTO drugs (name, patient_id) VALUES('" + drugName + "',"  + id + ")");
+            ps = DbConnection.getConnection().prepareStatement("INSERT INTO drugs (name, for_what) VALUES('" + name + "', '" + for_what + "')");
             ps.execute();
-            System.out.println("Successfully assigned drugs to patient.");
+            System.out.println("Successfully added new drugs.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public static void editDrug() {
+        System.out.println("Enter the drugs id: ");
+        int drugsId = scanner.nextInt();
+
+        System.out.println("name, what_for");
+        System.out.println("Enter the description: ");
+        String description = scanner.next();
+
+        System.out.println("Enter the updated description: ");
+        String update = scanner.next();
+
+        try {
+            ps = DbConnection.getConnection().prepareStatement("UPDATE drugs SET " + description + " = '" + update + "' WHERE id = " + drugsId);
+            ps.execute();
+            System.out.println("Successfully updated drugs.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
