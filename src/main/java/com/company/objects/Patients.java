@@ -6,7 +6,7 @@ public class Patients {
     private String surname;
     private int age;
     private String gender;
-    private int personalCode;
+    private int personal_code;
 
 
     public Patients() {
@@ -18,7 +18,7 @@ public class Patients {
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.personalCode = personalCode;
+        this.personal_code = personal_code;
         this.gender = gender;
     }
 
@@ -55,11 +55,11 @@ public class Patients {
     }
 
     public int getPersonalCode() {
-        return personalCode;
+        return personal_code;
     }
 
     public void setPersonalCode(int personalCode) {
-        this.personalCode = personalCode;
+        this.personal_code = personal_code;
     }
 
 

@@ -27,11 +27,11 @@ public class HospitalController {
         String gender = scanner.next();
 
         System.out.println("Enter the personal code of the patient: ");
-        int personalCode = scanner.nextInt();
+        int personal_code = scanner.nextInt();
 
 
         try {
-            ps = DbConnection.getConnection().prepareStatement("INSERT INTO patients(name, surname, personal_code, age, gender)" + "VALUES('" + name + "', '" + surname + "', " + personalCode + ", " + age + ", '" + gender + "')");
+            ps = DbConnection.getConnection().prepareStatement("INSERT INTO patients(name, surname, personal_code, age, gender)" + "VALUES('" + name + "', '" + surname + "', " + personal_code + ", " + age + ", '" + gender + "')");
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -65,7 +65,7 @@ public class HospitalController {
         System.out.println("Enter the patient id: ");
         int patientId = scanner.nextInt();
 
-        System.out.println("name, surname, age, gender");
+        System.out.println("name, surname, age ");
         System.out.println("Enter the field you want to edit: ");
         String field = scanner.next();
 
@@ -106,7 +106,7 @@ public class HospitalController {
             ps = DbConnection.getConnection().prepareStatement("SELECT * FROM patients WHERE id=" + id);
             rs = ps.executeQuery();
 
-            int patientId, age, personalCode;
+            int patientId, age, personal_code;
             String name, surname, gender;
             Patients patients = new Patients();
 
@@ -116,14 +116,14 @@ public class HospitalController {
                 surname = rs.getString("surname");
                 gender = rs.getString("gender");
                 age = rs.getInt("age");
-                personalCode = rs.getInt("personalCode");
+                personal_code = rs.getInt("personal_code");
                 patients.setId(patientId);
                 patients.setName(name);
                 patients.setSurname(surname);
                 patients.setAge(age);
                 patients.setGender(gender);
-                patients.setPersonalCode(personalCode);
-                System.out.println(patientId + "\t " + name + "\t " + surname + "\t " + age + "\t " + gender + "\t " + personalCode + "\t ");
+                patients.setPersonalCode(personal_code);
+                System.out.println(patientId + "\t " + name + "\t " + surname + "\t " + age + "\t " + gender + "\t " + personal_code + "\t ");
 
             }
             return patients;
